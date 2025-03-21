@@ -58,8 +58,7 @@ root:
             producerSubtask: comp
     tasks:
       comp:
-        cachingOptions:
-          enableCache: true
+        cachingOptions: {}
         componentRef:
           name: comp-comp
         inputs:
