@@ -5,8 +5,11 @@ from kfp import dsl
 def comp(env_var: str) -> str:
     import os
 
-    value = os.getenv(env_var, "default")
-    print(value)
+    value = os.getenv(env_var, "")
+
+    if value == "":
+        raise Exception("Env var is not set")
+
     return value
 
 

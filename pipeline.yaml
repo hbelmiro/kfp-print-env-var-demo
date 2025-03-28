@@ -44,7 +44,8 @@ deploymentSpec:
           '
         - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
           \ *\n\ndef comp(env_var: str) -> str:\n    import os\n\n    value = os.getenv(env_var,\
-          \ \"default\")\n    print(value)\n    return value\n\n"
+          \ \"\")\n\n    if value == \"\":\n        raise Exception(\"Env var is not\
+          \ set\")\n\n    return value\n\n"
         image: quay.io/hbelmiro/kfp-print-env-var-demo:latest
 pipelineInfo:
   name: my-pipeline
